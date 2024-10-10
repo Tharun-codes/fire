@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Tournament - Team L</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2, h3 {
+            color: #28a745;
+        }
+        form {
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        form:hover {
+            transform: scale(1.02);
+        }
+        input, textarea {
+            margin: 10px 0;
+            padding: 12px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .payment-section {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #e9f7ef;
+        }
+        @media (max-width: 600px) {
+            input, textarea {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>&#127918; Team L</h1>
+    </header>
+    <main>
+        <img src="https://images.hdqwalls.com/wallpapers/garena-free-fire-z4.jpg" alt="Free Fire Tournament Image">
+        <h2>Free Fire Tournament</h2>
+        <p>A platform to showcase your talent and test your skills.</p>
+        <p>Experience the excitement, challenge your friends, and win cash prizes!</p>
+
+        <h3>About Free Fire</h3>
+        <p>
+            Free Fire is a popular battle royale game developed by Garena. It features intense 10-minute matches, where players compete to be the last one standing.
+            Players can drop into a remote island, find weapons, gear, and resources, and engage in thrilling combat against others.
+            With a unique character system, players can choose from various characters, each with special abilities that can turn the tide of battle.
+        </p>
+        <p>
+            The game is known for its fast-paced gameplay, vibrant graphics, and a variety of modes including classic battle royale, ranked matches, and special events.
+            Join teams with friends or play solo to improve your skills and ranking.
+        </p>
+        <p>
+            With regular updates, new characters, and seasonal events, Free Fire keeps the excitement alive, making it a favorite among gamers worldwide.
+            Are you ready to showcase your skills and claim victory in our tournament?
+        </p>
+
+        <h3>Register Now!</h3>
+        <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="return validateForm()">
+            <input type="hidden" name="access_key" value="52cd516a-ed65-4f1d-a54b-c63807fdef60">
+
+            <input type="text" name="name" placeholder="Username" required>
+            <input type="text" name="team_name" placeholder="Team Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number.">
+            
+            <!-- Payment Section -->
+            <div class="payment-section">
+                <h4>Payment Information</h4>
+                <p>Please pay ₹200 using PhonePe to confirm your registration.</p>
+                <button type="button" onclick="payWithPhonePe()">Pay with PhonePe</button>
+            </div>
+
+            <!-- Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <button type="submit" id="submitButton" disabled>Submit Form</button>
+        </form>
+    </main>
+
+    <script>
+        let paymentConfirmed = false;
+
+        function payWithPhonePe() {
+            // Redirect to PhonePe payment link (replace with actual link)
+            window.location.href = "https://pay.phonepe.com"; // Placeholder URL
+            // Simulate payment confirmation after payment
+            setTimeout(() => {
+                paymentConfirmed = true;
+                document.getElementById('submitButton').disabled = false; // Enable the submit button
+                alert("Payment successful! You can now submit the form.");
+            }, 2000); // Simulate a delay for payment confirmation
+        }
+
+        function validateForm() {
+            if (!paymentConfirmed) {
+                alert("Please complete the payment before submitting the form.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
